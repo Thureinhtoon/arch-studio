@@ -1,0 +1,211 @@
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap');
+
+// Base typography
+html {
+  font-size: 16px;
+  
+  @include media-breakpoint-down(sm) {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $primary-dark;
+  background-color: $white;
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-primary;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: map-get($spacers, 3);
+  color: $primary-dark;
+}
+
+h1 {
+  font-size: $font-size-6xl;
+  
+  @include media-breakpoint-down(lg) {
+    font-size: $font-size-5xl;
+  }
+  
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-4xl;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-5xl;
+  
+  @include media-breakpoint-down(lg) {
+    font-size: $font-size-4xl;
+  }
+  
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-3xl;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-2xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-4xl;
+  
+  @include media-breakpoint-down(lg) {
+    font-size: $font-size-3xl;
+  }
+  
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-2xl;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-2xl;
+  
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-xl;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-lg;
+  }
+}
+
+h5 {
+  font-size: $font-size-xl;
+  
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-lg;
+  }
+}
+
+h6 {
+  font-size: $font-size-lg;
+  
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-base;
+  }
+}
+
+// Paragraphs
+p {
+  margin-bottom: map-get($spacers, 4);
+  color: $primary-light;
+  line-height: $line-height-relaxed;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Links
+a {
+  color: $primary-dark;
+  @include transition(color);
+  
+  &:hover,
+  &:focus {
+    color: $primary-light;
+  }
+}
+
+// Text utilities
+.text-large {
+  font-size: $font-size-lg;
+}
+
+.text-small {
+  font-size: $font-size-sm;
+}
+
+.text-xs {
+  font-size: $font-size-xs;
+}
+
+.text-light {
+  color: $primary-light;
+}
+
+.text-dark {
+  color: $primary-dark;
+}
+
+.text-white {
+  color: $white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-weight-light {
+  font-weight: $font-weight-light;
+}
+
+.font-weight-normal {
+  font-weight: $font-weight-regular;
+}
+
+.font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+
+.font-weight-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.font-weight-bold {
+  font-weight: $font-weight-bold;
+}
+
+// Letter spacing for headings
+.letter-spacing-wide {
+  letter-spacing: 0.1em;
+}
+
+.letter-spacing-wider {
+  letter-spacing: 0.15em;
+}
+
+// Line height utilities
+.line-height-tight {
+  line-height: $line-height-tight;
+}
+
+.line-height-normal {
+  line-height: $line-height-normal;
+}
+
+.line-height-relaxed {
+  line-height: $line-height-relaxed;
+}

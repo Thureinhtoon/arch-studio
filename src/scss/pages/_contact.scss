@@ -1,0 +1,429 @@
+// Contact page styles
+.contact-hero {
+  height: 60vh;
+  min-height: 400px;
+  @include cover-background;
+  @include flex-center;
+  align-items: center;
+  position: relative;
+  
+  @include media-breakpoint-down(md) {
+    height: 50vh;
+    min-height: 300px;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba($primary-dark, 0.7) 0%, rgba($primary-dark, 0.4) 100%);
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: $white;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .hero-title {
+    font-size: $font-size-6xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: 1rem;
+    
+    @include media-breakpoint-down(lg) {
+      font-size: $font-size-5xl;
+    }
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-4xl;
+    }
+    
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-3xl;
+    }
+  }
+  
+  .hero-subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.9;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+// Contact details section
+.contact-details {
+  padding: 8rem 0 4rem;
+  
+  @include media-breakpoint-down(lg) {
+    padding: 6rem 0 3rem;
+  }
+  
+  @include media-breakpoint-down(md) {
+    padding: 4rem 0 2rem;
+  }
+}
+
+.contact-info {
+  .section-title {
+    position: relative;
+    margin-bottom: 3rem;
+    
+    @include media-breakpoint-down(md) {
+      margin-bottom: 2rem;
+    }
+    
+    &::before {
+      content: 'Contact';
+      position: absolute;
+      top: -3rem;
+      left: -2rem;
+      font-size: $font-size-8xl;
+      font-weight: $font-weight-bold;
+      color: $light-gray;
+      z-index: -1;
+      
+      @include media-breakpoint-down(xl) {
+        font-size: $font-size-7xl;
+        top: -2.5rem;
+        left: -1.5rem;
+      }
+      
+      @include media-breakpoint-down(lg) {
+        font-size: $font-size-6xl;
+        top: -2rem;
+        left: -1rem;
+      }
+      
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+    }
+  }
+}
+
+.contact-text {
+  font-size: $font-size-lg;
+  line-height: $line-height-relaxed;
+  margin-bottom: 3rem;
+  
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-base;
+    margin-bottom: 2rem;
+  }
+}
+
+// Contact form
+.contact-form {
+  background: $white;
+  padding: 0;
+  
+  .form-group {
+    margin-bottom: 2rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .form-label {
+    display: block;
+    font-weight: $font-weight-semibold;
+    color: $primary-dark;
+    margin-bottom: 0.5rem;
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 1rem 0;
+    border: none;
+    border-bottom: 2px solid $medium-gray;
+    background: transparent;
+    font-size: $font-size-lg;
+    color: $primary-dark;
+    @include transition(border-color);
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-base;
+      padding: 0.75rem 0;
+    }
+    
+    &::placeholder {
+      color: $primary-light;
+      opacity: 0.7;
+    }
+    
+    &:focus {
+      outline: none;
+      border-bottom-color: $primary-dark;
+    }
+    
+    &.error {
+      border-bottom-color: #ff6b6b;
+    }
+  }
+  
+  .form-control-textarea {
+    min-height: 120px;
+    resize: vertical;
+    font-family: inherit;
+  }
+  
+  .form-error {
+    color: #ff6b6b;
+    font-size: $font-size-xs;
+    margin-top: 0.5rem;
+    display: none;
+    
+    &.show {
+      display: block;
+    }
+  }
+  
+  .btn-submit {
+    margin-top: 2rem;
+    
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+  }
+}
+
+// Office locations section
+.office-locations {
+  padding: 4rem 0 8rem;
+  
+  @include media-breakpoint-down(lg) {
+    padding: 3rem 0 6rem;
+  }
+  
+  @include media-breakpoint-down(md) {
+    padding: 2rem 0 4rem;
+  }
+}
+
+.offices-title {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  text-align: center;
+  margin-bottom: 4rem;
+  
+  @include media-breakpoint-down(lg) {
+    font-size: $font-size-3xl;
+    margin-bottom: 3rem;
+  }
+  
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-2xl;
+    margin-bottom: 2rem;
+  }
+}
+
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  
+  @include media-breakpoint-down(md) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.office-card {
+  text-align: center;
+  padding: 2rem;
+  background: $light-gray;
+  @include transition(transform, 0.3s);
+  
+  @include media-breakpoint-down(md) {
+    padding: 1.5rem;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  .office-name {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $primary-dark;
+    margin-bottom: 1rem;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-lg;
+    }
+  }
+  
+  .office-address {
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    color: $primary-light;
+    margin-bottom: 1.5rem;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-sm;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .office-link {
+    display: inline-flex;
+    align-items: center;
+    color: $primary-dark;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    @include transition(color);
+    
+    &:hover {
+      color: $primary-light;
+    }
+    
+    &::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      margin-left: 0.5rem;
+      background-image: url('../assets/icons/icon-arrow.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      @include transition(transform);
+    }
+    
+    &:hover::after {
+      transform: translateX(5px);
+    }
+  }
+}
+
+// Map section
+.map-section {
+  height: 400px;
+  background: $light-gray;
+  position: relative;
+  
+  @include media-breakpoint-down(md) {
+    height: 300px;
+  }
+  
+  #map {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    @include flex-center;
+    flex-direction: column;
+    background-color: $light-gray;
+    color: $primary-light;
+    
+    .map-icon {
+      font-size: $font-size-6xl;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+    
+    .map-text {
+      font-size: $font-size-lg;
+      text-align: center;
+    }
+  }
+}
+
+// Loading states
+.form-loading {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($white, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loading-spinner {
+    width: 30px;
+    height: 30px;
+    border: 2px solid $light-gray;
+    border-top: 2px solid $primary-dark;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Form success state
+.form-success {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: 1rem;
+  border-radius: $border-radius;
+  margin-bottom: 2rem;
+  text-align: center;
+  
+  .success-icon {
+    font-size: $font-size-2xl;
+    margin-bottom: 0.5rem;
+  }
+  
+  .success-title {
+    font-weight: $font-weight-semibold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .success-message {
+    font-size: $font-size-sm;
+    margin: 0;
+  }
+}
+
+// Responsive adjustments
+@include media-breakpoint-down(lg) {
+  .contact-form {
+    margin-top: 3rem;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .contact-details {
+    text-align: center;
+  }
+  
+  .contact-form {
+    margin-top: 2rem;
+  }
+}
+
+// Page indicator for contact
+.contact-page {
+  .page-indicator {
+    &::before {
+      content: 'Contact';
+    }
+  }
+}

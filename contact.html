@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Arch Studio for your architecture and design needs. Find our offices in Texas and Tennessee or get in touch through our contact form.">
+  <meta name="keywords" content="contact, architecture firm, design consultation, offices, Texas, Tennessee">
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  
+  <link rel="stylesheet" href="./dist/css/main.css">
+  
+  <title>Contact | Arch Studio Architecture & Design</title>
+</head>
+<body class="contact-page">
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="navbar d-flex justify-content-between align-items-center">
+        <a href="index.html" class="navbar-brand">
+          <img src="./assets/logo.svg" alt="Arch Studio" width="97" height="40">
+        </a>
+        
+        <ul class="navbar-nav d-flex" id="navbarNav">
+          <li class="nav-item">
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link active">Contact</a>
+          </li>
+        </ul>
+        
+        <button class="navbar-toggler" type="button" id="navbarToggle" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </nav>
+    </div>
+    <div class="navbar-overlay" id="navbarOverlay"></div>
+  </header>
+
+  <main>
+    <!-- Contact Hero Section -->
+    <section class="contact-hero" style="background-image: url('./assets/contact/desktop/image-hero.jpg')">
+      <div class="hero-content">
+        <div class="container">
+          <div class="page-indicator">Contact</div>
+          <h1 class="hero-title">Tell us about your project</h1>
+          <p class="hero-subtitle">We'd love to hear more about your project. Please, leave a message below or give us a call. We have two offices, one in Texas and one in Tennessee. If you find yourself nearby, come say hello!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Details Section -->
+    <section class="contact-details">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="contact-info">
+              <h2 class="section-title">Contact Details</h2>
+              <p class="contact-text">We are here to help bring your architectural vision to life. Get in touch with us through any of the methods below.</p>
+              
+              <!-- Office Locations -->
+              <div class="office-locations">
+                <div class="offices-grid">
+                  <!-- Main Office -->
+                  <div class="office-card">
+                    <h3 class="office-name">Main Office</h3>
+                    <div class="office-address">
+                      <p><strong>Mail:</strong> archone@mail.com</p>
+                      <p><strong>Address:</strong> 1892 Chenoweth Drive TN</p>
+                      <p><strong>Phone:</strong> 123-456-3451</p>
+                    </div>
+                    <a href="#map" class="office-link" data-office="main">View on Map</a>
+                  </div>
+                  
+                  <!-- Office II -->
+                  <div class="office-card">
+                    <h3 class="office-name">Office II</h3>
+                    <div class="office-address">
+                      <p><strong>Mail:</strong> archtwo@mail.com</p>
+                      <p><strong>Address:</strong> 3399 Wines Lane TX</p>
+                      <p><strong>Phone:</strong> 832-123-4321</p>
+                    </div>
+                    <a href="#map" class="office-link" data-office="texas">View on Map</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <!-- Contact Form -->
+            <div class="contact-form">
+              <h3 class="mb-4">Connect with us</h3>
+              
+              <div id="form-success" class="form-success" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h4 class="success-title">Message Sent Successfully!</h4>
+                <p class="success-message">Thank you for contacting us. We'll get back to you within 24 hours.</p>
+              </div>
+              
+              <form id="contactForm" novalidate>
+                <div class="form-group">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Your full name" required>
+                  <div class="form-error" id="name-error">Can't be empty</div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" required>
+                  <div class="form-error" id="email-error">Please use a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea class="form-control form-control-textarea" id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                  <div class="form-error" id="message-error">Can't be empty</div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-submit">
+                  <span class="btn-text">Send Message</span>
+                  <div class="loading-spinner" style="display: none;"></div>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map">
+      <div id="leaflet-map" style="height: 400px; width: 100%;">
+        <!-- Fallback for when JS is disabled -->
+        <div class="map-placeholder">
+          <div class="map-icon">🗺️</div>
+          <p class="map-text">Interactive map loading...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <a href="index.html" class="footer-brand">
+            <img src="./assets/logo.svg" alt="Arch Studio" width="97" height="40">
+          </a>
+        </div>
+        
+        <nav class="footer-nav">
+          <a href="portfolio.html" class="footer-nav-link">Portfolio</a>
+          <a href="about.html" class="footer-nav-link">About Us</a>
+          <a href="contact.html" class="footer-nav-link">Contact</a>
+        </nav>
+        
+        <div class="footer-cta">
+          <p class="footer-cta-text">See Our Portfolio</p>
+          <a href="portfolio.html" class="btn btn-arrow">View Projects</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="./src/js/main.js"></script>
+  <script src="./src/js/components/contact.js"></script>
+  <script src="./src/js/components/animations.js"></script>
+
+</body>
+</html>

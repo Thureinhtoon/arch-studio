@@ -1,0 +1,380 @@
+// About page styles
+.about-hero {
+  height: 70vh;
+  min-height: 500px;
+  @include cover-background;
+  @include flex-center;
+  align-items: center;
+  position: relative;
+  
+  @include media-breakpoint-down(md) {
+    height: 60vh;
+    min-height: 400px;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba($primary-dark, 0.6) 0%, rgba($primary-dark, 0.3) 100%);
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    color: $white;
+    max-width: 800px;
+  }
+  
+  .hero-title {
+    font-size: $font-size-7xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: 1.5rem;
+    line-height: $line-height-tight;
+    
+    @include media-breakpoint-down(lg) {
+      font-size: $font-size-6xl;
+    }
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-5xl;
+      text-align: center;
+    }
+    
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-4xl;
+    }
+  }
+  
+  .hero-subtitle {
+    font-size: $font-size-lg;
+    line-height: $line-height-relaxed;
+    opacity: 0.9;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-base;
+      text-align: center;
+    }
+  }
+}
+
+// Heritage section
+.heritage-section {
+  padding: 8rem 0;
+  
+  @include media-breakpoint-down(lg) {
+    padding: 6rem 0;
+  }
+  
+  @include media-breakpoint-down(md) {
+    padding: 4rem 0;
+  }
+}
+
+.heritage-content {
+  .section-title {
+    position: relative;
+    margin-bottom: 3rem;
+    
+    @include media-breakpoint-down(md) {
+      margin-bottom: 2rem;
+    }
+    
+    &::before {
+      content: 'Heritage';
+      position: absolute;
+      top: -3rem;
+      left: -2rem;
+      font-size: $font-size-8xl;
+      font-weight: $font-weight-bold;
+      color: $light-gray;
+      z-index: -1;
+      
+      @include media-breakpoint-down(xl) {
+        font-size: $font-size-7xl;
+        top: -2.5rem;
+        left: -1.5rem;
+      }
+      
+      @include media-breakpoint-down(lg) {
+        font-size: $font-size-6xl;
+        top: -2rem;
+        left: -1rem;
+      }
+      
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+    }
+  }
+  
+  .heritage-text {
+    font-size: $font-size-lg;
+    line-height: $line-height-relaxed;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-base;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.heritage-image {
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+// Leaders section
+.leaders-section {
+  padding: 8rem 0;
+  background-color: $light-gray;
+  
+  @include media-breakpoint-down(lg) {
+    padding: 6rem 0;
+  }
+  
+  @include media-breakpoint-down(md) {
+    padding: 4rem 0;
+  }
+}
+
+.leaders-title {
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-bold;
+  text-align: center;
+  margin-bottom: 4rem;
+  
+  @include media-breakpoint-down(lg) {
+    font-size: $font-size-4xl;
+    margin-bottom: 3rem;
+  }
+  
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-3xl;
+    margin-bottom: 2rem;
+  }
+}
+
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  
+  @include media-breakpoint-down(md) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.leader-card {
+  text-align: center;
+  background: $white;
+  padding: 2rem;
+  @include transition(transform, 0.3s);
+  
+  @include media-breakpoint-down(md) {
+    padding: 1.5rem;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  .leader-avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+    border-radius: 50%;
+    
+    @include media-breakpoint-down(md) {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 1rem;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .leader-name {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $primary-dark;
+    margin-bottom: 0.5rem;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-lg;
+    }
+  }
+  
+  .leader-role {
+    font-size: $font-size-base;
+    color: $primary-light;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-sm;
+    }
+  }
+  
+  .leader-bio {
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    color: $primary-light;
+  }
+}
+
+// Values section (if needed)
+.values-section {
+  padding: 8rem 0;
+  
+  @include media-breakpoint-down(lg) {
+    padding: 6rem 0;
+  }
+  
+  @include media-breakpoint-down(md) {
+    padding: 4rem 0;
+  }
+}
+
+.values-title {
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-bold;
+  text-align: center;
+  margin-bottom: 4rem;
+  
+  @include media-breakpoint-down(lg) {
+    font-size: $font-size-4xl;
+    margin-bottom: 3rem;
+  }
+  
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-3xl;
+    margin-bottom: 2rem;
+  }
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  
+  @include media-breakpoint-down(md) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.value-item {
+  text-align: center;
+  padding: 2rem;
+  
+  @include media-breakpoint-down(md) {
+    padding: 1.5rem;
+  }
+  
+  .value-icon {
+    font-size: $font-size-6xl;
+    color: $primary-dark;
+    margin-bottom: 1.5rem;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-5xl;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .value-title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: $primary-dark;
+    margin-bottom: 1rem;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-xl;
+    }
+  }
+  
+  .value-description {
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    color: $primary-light;
+  }
+}
+
+// Animation for about page elements
+.about-section {
+  opacity: 0;
+  transform: translateY(50px);
+  @include transition(all, 0.8s, ease-out);
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Stagger animation delays
+.heritage-section.animate-in {
+  transition-delay: 0.1s;
+}
+
+.leaders-section.animate-in {
+  transition-delay: 0.2s;
+}
+
+.values-section.animate-in {
+  transition-delay: 0.3s;
+}
+
+.leader-card {
+  opacity: 0;
+  transform: translateY(30px);
+  @include transition(all, 0.6s, ease-out);
+  
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  // Stagger delays for leader cards
+  &:nth-child(1).animate-in { transition-delay: 0.1s; }
+  &:nth-child(2).animate-in { transition-delay: 0.2s; }
+  &:nth-child(3).animate-in { transition-delay: 0.3s; }
+  &:nth-child(4).animate-in { transition-delay: 0.4s; }
+}
+
+// Page indicator for about
+.about-page {
+  .page-indicator {
+    &::before {
+      content: 'About Us';
+    }
+  }
+}
