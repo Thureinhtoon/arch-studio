@@ -10,100 +10,77 @@
     initScrollAnimations();
   });
 
-  // Navigation functionality
+  // Simple navigation functionality
   function initNavigation() {
-    const navbarToggle = $('#navbarToggle');
-    const navbarNav = $('#navbarNav');
-    const navbarOverlay = $('#navbarOverlay');
-    const body = $('body');
-
-    // Mobile menu toggle
-    navbarToggle.on('click', function() {
-      const isExpanded = $(this).attr('aria-expanded') === 'true';
-      
-      $(this).attr('aria-expanded', !isExpanded);
-      $(this).toggleClass('active');
-      navbarNav.toggleClass('show');
-      navbarOverlay.toggleClass('show');
-      body.toggleClass('menu-open');
-    });
-
-    // Close menu when clicking overlay
-    navbarOverlay.on('click', function() {
-      closeMenu();
-    });
-
-    // Close menu when clicking nav links (mobile)
-    $('.nav-link').on('click', function() {
-      if (window.innerWidth <= 991) {
-        closeMenu();
-      }
-    });
-
-    // Close menu function
-    function closeMenu() {
-      navbarToggle.attr('aria-expanded', 'false');
-      navbarToggle.removeClass('active');
-      navbarNav.removeClass('show');
-      navbarOverlay.removeClass('show');
-      body.removeClass('menu-open');
-    }
-
-    // Handle window resize with immediate and debounced actions
-    let resizeTimeout;
+    const toggle = document.getElementById('navbarToggle');
+    const nav = document.getElementById('navbarNav');
+    const overlay = document.getElementById('navbarOverlay');
     
-    function forceResetNavigation() {
-      // Immediate reset - don't wait for debouncing
-      if (window.innerWidth >= 992) {
-        // Desktop: Force close mobile menu and reset all states
-        navbarNav.removeClass('show').removeAttr('style');
-        navbarOverlay.removeClass('show').removeAttr('style');
-        navbarToggle.removeClass('active').attr('aria-expanded', 'false');
-        body.removeClass('menu-open');
-        
-        // Add force-reset class temporarily
-        navbarNav.addClass('force-reset');
-        setTimeout(() => navbarNav.removeClass('force-reset'), 50);
-        
-        // Force CSS reset by clearing all inline styles
-        navbarNav[0].style.cssText = '';
-        navbarOverlay[0].style.cssText = '';
+    let isOpen = false;
+    
+    // Toggle menu
+    toggle.addEventListener('click', function() {
+      isOpen = !isOpen;
+      
+      if (isOpen) {
+        nav.classList.add('show');
+        overlay.classList.add('show');
+        toggle.classList.add('active');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-open');
       } else {
-        // Mobile: Ensure menu is hidden by default unless actively shown
-        if (!navbarToggle.hasClass('active')) {
-          navbarNav.removeClass('show');
-          navbarOverlay.removeClass('show');
-          body.removeClass('menu-open');
-          
-          // Add force-reset class temporarily
-          navbarNav.addClass('force-reset');
-          setTimeout(() => navbarNav.removeClass('force-reset'), 50);
-          
-          // Ensure mobile positioning is correct
-          navbarNav.removeAttr('style');
-          navbarOverlay.removeAttr('style');
-        }
+        nav.classList.remove('show');
+        overlay.classList.remove('show');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
       }
-    }
+    });
     
-    $(window).on('resize', function() {
-      // Immediate action
-      forceResetNavigation();
-      
-      // Debounced double-check
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(function() {
-        forceResetNavigation();
-      }, 150);
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', function() {
+      isOpen = false;
+      nav.classList.remove('show');
+      overlay.classList.remove('show');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    });
+    
+    // Close menu on nav link click (mobile only)
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 991) {
+          isOpen = false;
+          nav.classList.remove('show');
+          overlay.classList.remove('show');
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        }
+      });
+    });
+    
+    // Handle window resize - SIMPLE VERSION
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 992) {
+        // Desktop: always close mobile menu
+        isOpen = false;
+        nav.classList.remove('show');
+        overlay.classList.remove('show');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      }
     });
 
     // Active page navigation highlighting
     const currentPath = window.location.pathname;
-    $('.nav-link').each(function() {
-      const linkPath = $(this).attr('href');
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const linkPath = link.getAttribute('href');
       if (currentPath.includes(linkPath.replace('.html', '')) || 
           (currentPath === '/' && linkPath === 'index.html')) {
-        $(this).addClass('active');
+        link.classList.add('active');
       }
     });
   }

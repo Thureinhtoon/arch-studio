@@ -36,62 +36,74 @@
   }
 }
 
+// Complete reset - nuclear option
 .navbar-nav {
   list-style: none;
   margin: 0;
   padding: 0;
-  
-  // Desktop styles (992px and up)
-  @media (min-width: 992px) {
-    display: flex !important;
-    position: static !important;
-    width: auto !important;
-    height: auto !important;
-    background-color: transparent !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: center !important;
-    padding: 0 !important;
-    right: auto !important;
-    top: auto !important;
-    left: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    transition: none !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+}
+
+// Desktop navigation (992px and above)
+@media screen and (min-width: 992px) {
+  .navbar-nav {
+    display: flex;
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    right: auto;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    transition: none;
+    visibility: visible;
+    opacity: 1;
+    z-index: auto;
   }
   
-  // Mobile styles (below 992px) - Always start hidden
-  @media (max-width: 991.98px) {
-    display: flex !important;
-    position: fixed !important;
-    top: 0 !important;
-    right: -100% !important;
-    bottom: auto !important;
-    left: auto !important;
-    width: 300px !important;
-    height: 100vh !important;
-    background-color: $light-gray !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-    padding: 3rem 2rem !important;
-    transition: right 0.3s ease-in-out !important;
-    z-index: $z-index-modal !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    
-    &.show {
-      right: 0 !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+// Mobile navigation (below 992px)  
+@media screen and (max-width: 991px) {
+  .navbar-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: $light-gray;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 3rem 2rem;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
   }
   
-  @media (max-width: 575.98px) {
-    width: 250px !important;
-    padding: 2rem 1.5rem !important;
+  .navbar-nav.show {
+    transform: translateX(0);
+  }
+  
+  .navbar-toggler {
+    display: block;
+  }
+}
+
+// Small mobile
+@media screen and (max-width: 575px) {
+  .navbar-nav {
+    width: 250px;
+    padding: 2rem 1.5rem;
   }
 }
 
@@ -229,33 +241,30 @@
   }
 }
 
-// Mobile overlay
-.navbar-overlay {
-  // Hide completely on desktop
-  @media (min-width: 992px) {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
+// Mobile overlay - SIMPLE VERSION
+@media screen and (min-width: 992px) {
+  .navbar-overlay {
+    display: none;
   }
-  
-  // Mobile overlay styles
-  @media (max-width: 991.98px) {
+}
+
+@media screen and (max-width: 991px) {
+  .navbar-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($primary-dark, 0.5);
-    z-index: $z-index-modal - 10;
+    background-color: rgba(27, 29, 35, 0.5);
+    z-index: 999;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease-in-out;
-    
-    &.show {
-      display: block;
-      opacity: 1;
-      visibility: visible;
-    }
+    transition: opacity 0.3s ease;
+  }
+  
+  .navbar-overlay.show {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -287,33 +296,10 @@
   }
 }
 
-// Force reset navigation positioning issues
-.navbar-nav.force-reset {
-  @media (max-width: 991.98px) {
-    right: -100% !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    transform: none !important;
-  }
-  
-  @media (min-width: 992px) {
-    position: static !important;
-    right: auto !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-// Body state when mobile menu is open
-body.menu-open {
-  @media (max-width: 991.98px) {
+// Body overflow control when mobile menu is open
+@media screen and (max-width: 991px) {
+  body.menu-open {
     overflow: hidden;
-  }
-  
-  // Ensure desktop is never affected
-  @media (min-width: 992px) {
-    overflow: auto !important;
   }
 }
 
