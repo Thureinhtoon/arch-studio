@@ -42,6 +42,19 @@
   margin: 0;
   padding: 0;
   
+  @include media-breakpoint-up(lg) {
+    display: flex !important;
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    background-color: transparent !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+  
   @include media-breakpoint-down(lg) {
     position: fixed;
     top: 0;
@@ -68,19 +81,18 @@
 }
 
 .nav-item {
-  &:not(:last-child) {
-    margin-right: 3rem;
-    
-    @include media-breakpoint-down(lg) {
-      margin-right: 0;
-      margin-bottom: 2rem;
+  @include media-breakpoint-up(lg) {
+    &:not(:last-child) {
+      margin-right: 3rem;
     }
   }
   
   @include media-breakpoint-down(lg) {
     width: 100%;
+    margin-right: 0;
     
     &:not(:last-child) {
+      margin-bottom: 2rem;
       border-bottom: 1px solid $medium-gray;
       padding-bottom: 1rem;
     }
@@ -150,6 +162,10 @@
   position: relative;
   z-index: $z-index-modal + 10;
   cursor: pointer;
+  
+  @include media-breakpoint-up(lg) {
+    display: none !important;
+  }
   
   @include media-breakpoint-down(lg) {
     display: block;

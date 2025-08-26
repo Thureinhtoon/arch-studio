@@ -49,10 +49,14 @@
       body.removeClass('menu-open');
     }
 
-    // Close menu on window resize
+    // Close menu on window resize and reset menu state
     $(window).on('resize', function() {
-      if (window.innerWidth > 991) {
+      if (window.innerWidth >= 992) { // lg breakpoint
         closeMenu();
+        // Force reset menu state for large screens
+        navbarNav.removeAttr('style');
+        navbarToggle.removeClass('active');
+        body.removeClass('menu-open');
       }
     });
 
