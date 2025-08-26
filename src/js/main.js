@@ -49,30 +49,52 @@
       body.removeClass('menu-open');
     }
 
-    // Handle window resize with debouncing
+    // Handle window resize with immediate and debounced actions
     let resizeTimeout;
-    $(window).on('resize', function() {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(function() {
-        if (window.innerWidth >= 992) {
-          // Desktop: Force close mobile menu and reset all states
+    
+    function forceResetNavigation() {
+      // Immediate reset - don't wait for debouncing
+      if (window.innerWidth >= 992) {
+        // Desktop: Force close mobile menu and reset all states
+        navbarNav.removeClass('show').removeAttr('style');
+        navbarOverlay.removeClass('show').removeAttr('style');
+        navbarToggle.removeClass('active').attr('aria-expanded', 'false');
+        body.removeClass('menu-open');
+        
+        // Add force-reset class temporarily
+        navbarNav.addClass('force-reset');
+        setTimeout(() => navbarNav.removeClass('force-reset'), 50);
+        
+        // Force CSS reset by clearing all inline styles
+        navbarNav[0].style.cssText = '';
+        navbarOverlay[0].style.cssText = '';
+      } else {
+        // Mobile: Ensure menu is hidden by default unless actively shown
+        if (!navbarToggle.hasClass('active')) {
           navbarNav.removeClass('show');
           navbarOverlay.removeClass('show');
-          navbarToggle.removeClass('active').attr('aria-expanded', 'false');
           body.removeClass('menu-open');
           
-          // Remove inline styles that might interfere
+          // Add force-reset class temporarily
+          navbarNav.addClass('force-reset');
+          setTimeout(() => navbarNav.removeClass('force-reset'), 50);
+          
+          // Ensure mobile positioning is correct
           navbarNav.removeAttr('style');
           navbarOverlay.removeAttr('style');
-        } else {
-          // Mobile: Ensure menu is hidden by default
-          if (!navbarToggle.hasClass('active')) {
-            navbarNav.removeClass('show');
-            navbarOverlay.removeClass('show');
-            body.removeClass('menu-open');
-          }
         }
-      }, 100);
+      }
+    }
+    
+    $(window).on('resize', function() {
+      // Immediate action
+      forceResetNavigation();
+      
+      // Debounced double-check
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function() {
+        forceResetNavigation();
+      }, 150);
     });
 
     // Active page navigation highlighting

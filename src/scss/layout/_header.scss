@@ -53,34 +53,45 @@
     align-items: center !important;
     padding: 0 !important;
     right: auto !important;
+    top: auto !important;
+    left: auto !important;
+    bottom: auto !important;
     transform: none !important;
     transition: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   
-  // Mobile styles (below 992px)
+  // Mobile styles (below 992px) - Always start hidden
   @media (max-width: 991.98px) {
-    display: flex;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 300px;
-    height: 100vh;
-    background-color: $light-gray;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 3rem 2rem;
-    transition: right 0.3s ease-in-out;
-    z-index: $z-index-modal;
+    display: flex !important;
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 300px !important;
+    height: 100vh !important;
+    background-color: $light-gray !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    padding: 3rem 2rem !important;
+    transition: right 0.3s ease-in-out !important;
+    z-index: $z-index-modal !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
     
     &.show {
       right: 0 !important;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
   }
   
   @media (max-width: 575.98px) {
-    width: 250px;
-    padding: 2rem 1.5rem;
+    width: 250px !important;
+    padding: 2rem 1.5rem !important;
   }
 }
 
@@ -273,6 +284,24 @@
   
   .navbar-toggler .hamburger span {
     background-color: $white;
+  }
+}
+
+// Force reset navigation positioning issues
+.navbar-nav.force-reset {
+  @media (max-width: 991.98px) {
+    right: -100% !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transform: none !important;
+  }
+  
+  @media (min-width: 992px) {
+    position: static !important;
+    right: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
