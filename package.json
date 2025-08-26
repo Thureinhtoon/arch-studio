@@ -1,0 +1,35 @@
+{
+  "name": "arch-studio-website",
+  "version": "1.0.0",
+  "description": "Multi-page architecture studio website built with HTML5, SCSS, Bootstrap, and JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm-run-all --parallel watch:scss serve",
+    "build": "npm-run-all build:scss build:js",
+    "build:scss": "sass src/scss/main.scss dist/css/main.css --style compressed --no-source-map",
+    "watch:scss": "sass src/scss/main.scss dist/css/main.css --watch",
+    "build:js": "mkdir -p dist/js && cp src/js/*.js dist/js/",
+    "serve": "live-server --port=3000",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "architecture",
+    "portfolio",
+    "responsive",
+    "bootstrap",
+    "scss",
+    "frontend"
+  ],
+  "author": "Frontend Developer",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0",
+    "live-server": "^1.2.2",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "jquery": "^3.7.1",
+    "leaflet": "^1.9.4"
+  }
+}

@@ -1,0 +1,264 @@
+// Header styles
+.header {
+  background-color: $white;
+  position: relative;
+  z-index: $z-index-sticky;
+  
+  @include media-breakpoint-up(lg) {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.navbar {
+  padding: 2rem 0;
+  
+  @include media-breakpoint-down(md) {
+    padding: 1.5rem 0;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    padding: 1rem 0;
+  }
+}
+
+.navbar-brand {
+  @include flex-center;
+  margin-right: auto;
+  
+  img {
+    height: 40px;
+    width: auto;
+    
+    @include media-breakpoint-down(sm) {
+      height: 32px;
+    }
+  }
+}
+
+.navbar-nav {
+  @include flex-center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  @include media-breakpoint-down(lg) {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: $light-gray;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 3rem 2rem;
+    @include transition(right, 0.3s, ease-in-out);
+    z-index: $z-index-modal;
+    
+    &.show {
+      right: 0;
+    }
+  }
+  
+  @include media-breakpoint-down(sm) {
+    width: 250px;
+    padding: 2rem 1.5rem;
+  }
+}
+
+.nav-item {
+  &:not(:last-child) {
+    margin-right: 3rem;
+    
+    @include media-breakpoint-down(lg) {
+      margin-right: 0;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+    
+    &:not(:last-child) {
+      border-bottom: 1px solid $medium-gray;
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+.nav-link {
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-lg;
+  color: $primary-light;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  @include transition(color);
+  
+  @include media-breakpoint-down(lg) {
+    font-size: $font-size-xl;
+    color: $primary-dark;
+  }
+  
+  &:hover,
+  &.active {
+    color: $primary-dark;
+    
+    @include media-breakpoint-up(lg) {
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $primary-dark;
+        transform: scaleX(1);
+      }
+    }
+  }
+  
+  @include media-breakpoint-up(lg) {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $primary-dark;
+      transform: scaleX(0);
+      @include transition(transform);
+    }
+    
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+// Mobile menu toggle
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: $z-index-modal + 10;
+  cursor: pointer;
+  
+  @include media-breakpoint-down(lg) {
+    display: block;
+  }
+  
+  .hamburger {
+    display: block;
+    width: 24px;
+    height: 17px;
+    position: relative;
+    
+    span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: $primary-dark;
+      margin-bottom: 4px;
+      @include transition(all, 0.3s, ease-in-out);
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  &.active .hamburger {
+    span {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+  }
+}
+
+// Mobile overlay
+.navbar-overlay {
+  display: none;
+  
+  @include media-breakpoint-down(lg) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($primary-dark, 0.5);
+    z-index: $z-index-modal - 10;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(all, 0.3s, ease-in-out);
+    
+    &.show {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+// Header with hero section
+.header-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  z-index: $z-index-sticky;
+  
+  .navbar {
+    padding: 3rem 0;
+  }
+  
+  .nav-link {
+    color: $white;
+    
+    &:hover,
+    &.active {
+      color: $white;
+      opacity: 0.8;
+    }
+  }
+  
+  .navbar-toggler .hamburger span {
+    background-color: $white;
+  }
+}
+
+// Page indicator
+.page-indicator {
+  position: absolute;
+  left: -5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-lg;
+  color: $primary-light;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  
+  @include media-breakpoint-down(xl) {
+    display: none;
+  }
+}

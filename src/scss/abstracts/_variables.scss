@@ -1,0 +1,97 @@
+// Colors
+$primary-dark: #1B1D23;
+$primary-light: #60636D;
+$accent-red: #C8CCD8;
+$white: #FFFFFF;
+$light-gray: #F4F4F4;
+$medium-gray: #C8CCD8;
+$dark-gray: #7D828F;
+
+// Typography
+$font-primary: 'League Spartan', sans-serif;
+$font-secondary: 'Red Hat Display', sans-serif;
+
+$font-size-xs: 0.75rem;    // 12px
+$font-size-sm: 0.875rem;   // 14px
+$font-size-base: 1rem;     // 16px
+$font-size-lg: 1.125rem;   // 18px
+$font-size-xl: 1.25rem;    // 20px
+$font-size-2xl: 1.5rem;    // 24px
+$font-size-3xl: 2rem;      // 32px
+$font-size-4xl: 2.5rem;    // 40px
+$font-size-5xl: 3rem;      // 48px
+$font-size-6xl: 4rem;      // 64px
+$font-size-7xl: 5rem;      // 80px
+$font-size-8xl: 6rem;      // 96px
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-tight: 1.1;
+$line-height-snug: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.6;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 2.5,
+  7: $spacer * 3,
+  8: $spacer * 4,
+  9: $spacer * 5,
+  10: $spacer * 6
+);
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Grid
+$grid-columns: 12;
+$grid-gutter-width: 2rem;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+// Border radius
+$border-radius-sm: 0.125rem;
+$border-radius: 0.25rem;
+$border-radius-lg: 0.5rem;
+
+// Shadows
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($primary-dark, 0.075);
+$box-shadow: 0 0.5rem 1rem rgba($primary-dark, 0.15);
+$box-shadow-lg: 0 1rem 3rem rgba($primary-dark, 0.175);
+
+// Transitions
+$transition-base: all 0.3s ease-in-out;
+$transition-fast: all 0.15s ease-in-out;
+$transition-slow: all 0.5s ease-in-out;
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;

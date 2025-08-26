@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Arch Studio - Award-winning architecture firm creating innovative and sustainable designs for residential, commercial and cultural spaces.">
+  <meta name="keywords" content="architecture, design, buildings, construction, residential, commercial">
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link rel="stylesheet" href="./dist/css/main.css">
+  
+  <title>Arch Studio | Architecture & Design</title>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="navbar d-flex justify-content-between align-items-center">
+        <a href="#" class="navbar-brand">
+          <img src="./assets/logo.svg" alt="Arch Studio" width="97" height="40">
+        </a>
+        
+        <ul class="navbar-nav d-flex" id="navbarNav">
+          <li class="nav-item">
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        
+        <button class="navbar-toggler" type="button" id="navbarToggle" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </nav>
+    </div>
+    <div class="navbar-overlay" id="navbarOverlay"></div>
+  </header>
+
+  <main>
+    <!-- Hero Carousel Section -->
+    <section class="hero-carousel" id="heroCarousel">
+      <div class="carousel-inner">
+        <!-- Slide 1: Project Paramour -->
+        <div class="carousel-item active" data-bg="./assets/home/desktop/image-hero-paramour.jpg">
+          <div class="carousel-content">
+            <div class="container">
+              <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                  <div class="hero-text">
+                    <h1 class="hero-title text-white">Project Paramour</h1>
+                    <p class="hero-description text-white">Project made for an art museum near Southwest London. Project Paramour is a statement of bold, modern architecture.</p>
+                    <a href="portfolio.html" class="btn btn-white mt-4">See Our Portfolio</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 2: Seraph Station -->
+        <div class="carousel-item" data-bg="./assets/home/desktop/image-hero-seraph.jpg">
+          <div class="carousel-content">
+            <div class="container">
+              <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                  <div class="hero-text">
+                    <h1 class="hero-title text-white">Seraph Station</h1>
+                    <p class="hero-description text-white">The Seraph Station project challenged us to design a unique station that would transport people through time. The result is a fresh and futuristic model inspired by space stations.</p>
+                    <a href="portfolio.html" class="btn btn-white mt-4">See Our Portfolio</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 3: Federal II Tower -->
+        <div class="carousel-item" data-bg="./assets/home/desktop/image-hero-federal.jpg">
+          <div class="carousel-content">
+            <div class="container">
+              <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                  <div class="hero-text">
+                    <h1 class="hero-title text-white">Federal II Tower</h1>
+                    <p class="hero-description text-white">A sequel theme project for a tower originally built in the 1800s. We achieved this with a striking look of brutal minimalism with modern touches.</p>
+                    <a href="portfolio.html" class="btn btn-white mt-4">See Our Portfolio</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 4: Trinity Bank Tower -->
+        <div class="carousel-item" data-bg="./assets/home/desktop/image-hero-trinity.jpg">
+          <div class="carousel-content">
+            <div class="container">
+              <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                  <div class="hero-text">
+                    <h1 class="hero-title text-white">Trinity Bank Tower</h1>
+                    <p class="hero-description text-white">Trinity Bank challenged us to make a concept for a 84 story building located in the middle of a city with a high earthquake frequency. For this project we used curves to blend design and stability to meet our objectives.</p>
+                    <a href="portfolio.html" class="btn btn-white mt-4">See Our Portfolio</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-slide="0" class="active" aria-label="Slide 1">01</button>
+        <button type="button" data-slide="1" aria-label="Slide 2">02</button>
+        <button type="button" data-slide="2" aria-label="Slide 3">03</button>
+        <button type="button" data-slide="3" aria-label="Slide 4">04</button>
+      </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="welcome-text position-relative">
+              <h2 class="welcome-title mb-4">Welcome to Arch Studio</h2>
+              <p class="mb-4">We have a unique network and skillset to help bring your projects to life. Our small team of highly skilled individuals combined with our large network put us in a strong position to deliver exceptional results.</p>
+              <p class="mb-4">Over the past 10 years, we have worked on all kinds of projects. From stations to high-rise buildings, we create spaces that inspire and delight.</p>
+              <p class="mb-4">We work closely with our clients so that we understand the intricacies of each project. This allows us to work in harmony the surrounding area to create truly stunning projects that will stand the test of time.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="welcome-image position-relative">
+              <img src="./assets/home/desktop/image-welcome.jpg" alt="Welcome to Arch Studio" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Small Team Section -->
+    <section class="small-team-section py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+            <div class="small-team-text">
+              <h2 class="small-team-title mb-4">Small team, big ideas</h2>
+              <a href="about.html" class="btn btn-arrow">About Us</a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="small-team-image">
+              <img src="./assets/home/desktop/image-small-team.jpg" alt="Small team, big ideas" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="featured-section py-5">
+      <div class="container">
+        <div class="row align-items-center mb-5">
+          <div class="col-lg-6">
+            <h2 class="section-title">Featured</h2>
+          </div>
+          <div class="col-lg-6 text-lg-end">
+            <a href="portfolio.html" class="btn btn-arrow">See all</a>
+          </div>
+        </div>
+        
+        <div class="row g-4">
+          <!-- Project 1: Del Sol -->
+          <div class="col-lg-4 col-md-6">
+            <article class="featured-item position-relative">
+              <div class="featured-image">
+                <img src="./assets/portfolio/desktop/image-del-sol.jpg" alt="Project Del Sol" class="img-fluid">
+                <div class="featured-overlay">
+                  <div class="featured-content text-white">
+                    <div class="featured-number">1</div>
+                    <h3 class="featured-title">Project Del Sol</h3>
+                    <a href="portfolio.html" class="btn btn-arrow btn-white">View All Projects</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          
+          <!-- Project 2: 228B Tower -->
+          <div class="col-lg-4 col-md-6">
+            <article class="featured-item position-relative">
+              <div class="featured-image">
+                <img src="./assets/portfolio/desktop/image-228b.jpg" alt="228B Tower" class="img-fluid">
+                <div class="featured-overlay">
+                  <div class="featured-content text-white">
+                    <div class="featured-number">2</div>
+                    <h3 class="featured-title">228B Tower</h3>
+                    <a href="portfolio.html" class="btn btn-arrow btn-white">View All Projects</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          
+          <!-- Project 3: Le Prototype -->
+          <div class="col-lg-4 col-md-6">
+            <article class="featured-item position-relative">
+              <div class="featured-image">
+                <img src="./assets/portfolio/desktop/image-prototype.jpg" alt="Le Prototype" class="img-fluid">
+                <div class="featured-overlay">
+                  <div class="featured-content text-white">
+                    <div class="featured-number">3</div>
+                    <h3 class="featured-title">Le Prototype</h3>
+                    <a href="portfolio.html" class="btn btn-arrow btn-white">View All Projects</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <a href="#" class="footer-brand">
+            <img src="./assets/logo.svg" alt="Arch Studio" width="97" height="40">
+          </a>
+        </div>
+        
+        <nav class="footer-nav">
+          <a href="portfolio.html" class="footer-nav-link">Portfolio</a>
+          <a href="about.html" class="footer-nav-link">About Us</a>
+          <a href="contact.html" class="footer-nav-link">Contact</a>
+        </nav>
+        
+        <div class="footer-cta">
+          <p class="footer-cta-text">See Our Portfolio</p>
+          <a href="portfolio.html" class="btn btn-arrow">View Projects</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./src/js/main.js"></script>
+
+</body>
+</html>

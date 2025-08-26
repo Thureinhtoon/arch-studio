@@ -1,0 +1,192 @@
+// Base button styles
+.btn {
+  display: inline-block;
+  font-weight: $font-weight-semibold;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 2px solid transparent;
+  padding: 1rem 2rem;
+  font-size: $font-size-base;
+  border-radius: 0;
+  @include transition(all, 0.15s, ease-in-out);
+  
+  &:hover {
+    text-decoration: none;
+  }
+  
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba($primary-dark, 0.25);
+  }
+  
+  &.disabled,
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+  
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    transform: translateY(1px);
+  }
+}
+
+// Primary button
+.btn-primary {
+  @include button-variant($white, $primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: $font-weight-bold;
+  
+  &:hover {
+    background-color: $primary-light;
+    border-color: $primary-light;
+  }
+}
+
+// Secondary button
+.btn-secondary {
+  @include button-outline-variant($primary-dark);
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: $font-weight-bold;
+  border-width: 2px;
+  
+  &:hover {
+    background-color: $primary-dark;
+    color: $white;
+  }
+}
+
+// White button
+.btn-white {
+  @include button-variant($primary-dark, $white);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: $font-weight-bold;
+  
+  &:hover {
+    background-color: $light-gray;
+    border-color: $light-gray;
+  }
+}
+
+// Link button
+.btn-link {
+  font-weight: $font-weight-medium;
+  color: $primary-dark;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  @include transition(color);
+  
+  &:hover {
+    color: $primary-light;
+    text-decoration: underline;
+  }
+  
+  &:focus {
+    text-decoration: underline;
+    box-shadow: none;
+  }
+  
+  &:disabled,
+  &.disabled {
+    color: $dark-gray;
+    pointer-events: none;
+  }
+}
+
+// Arrow button
+.btn-arrow {
+  @include flex-center;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $primary-dark;
+  background: none;
+  border: none;
+  padding: 0;
+  @include transition(color);
+  
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 26px;
+    height: 20px;
+    margin-left: 1.5rem;
+    background-image: url('../assets/icons/icon-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    @include transition(transform);
+  }
+  
+  &:hover {
+    color: $primary-light;
+    
+    &::after {
+      transform: translateX(5px);
+    }
+  }
+}
+
+// Button sizes
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: $font-size-sm;
+}
+
+.btn-lg {
+  padding: 1.25rem 2.5rem;
+  font-size: $font-size-lg;
+}
+
+// Button block
+.btn-block {
+  display: block;
+  width: 100%;
+  
+  + .btn-block {
+    margin-top: 0.5rem;
+  }
+}
+
+// Close button
+.btn-close {
+  box-sizing: content-box;
+  width: 1em;
+  height: 1em;
+  padding: 0.25em;
+  color: $primary-dark;
+  background: transparent url('../assets/icons/icon-close.svg') center/1em auto no-repeat;
+  border: 0;
+  border-radius: 0;
+  opacity: 0.5;
+  @include transition(opacity);
+  
+  &:hover {
+    color: $primary-dark;
+    text-decoration: none;
+    opacity: 0.75;
+  }
+  
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba($primary-dark, 0.25);
+    opacity: 1;
+  }
+  
+  &:disabled,
+  &.disabled {
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.25;
+  }
+}

@@ -1,0 +1,310 @@
+// Portfolio page styles
+.portfolio-hero {
+  height: 60vh;
+  min-height: 400px;
+  @include cover-background;
+  @include flex-center;
+  align-items: center;
+  position: relative;
+  
+  @include media-breakpoint-down(md) {
+    height: 50vh;
+    min-height: 300px;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba($primary-dark, 0.7) 0%, rgba($primary-dark, 0.4) 100%);
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: $white;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .hero-title {
+    font-size: $font-size-6xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: 1rem;
+    
+    @include media-breakpoint-down(lg) {
+      font-size: $font-size-5xl;
+    }
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-4xl;
+    }
+    
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-3xl;
+    }
+  }
+  
+  .hero-subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.9;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+// Portfolio grid section
+.portfolio-grid {
+  padding: 8rem 0;
+  
+  @include media-breakpoint-down(lg) {
+    padding: 6rem 0;
+  }
+  
+  @include media-breakpoint-down(md) {
+    padding: 4rem 0;
+  }
+}
+
+.portfolio-filters {
+  margin-bottom: 4rem;
+  text-align: center;
+  
+  @include media-breakpoint-down(md) {
+    margin-bottom: 3rem;
+  }
+  
+  .filter-btn {
+    background: none;
+    border: 2px solid $medium-gray;
+    color: $primary-dark;
+    padding: 0.75rem 2rem;
+    margin: 0 0.5rem 1rem;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    @include transition(all);
+    
+    @include media-breakpoint-down(sm) {
+      padding: 0.5rem 1.5rem;
+      margin: 0 0.25rem 0.5rem;
+      font-size: $font-size-sm;
+    }
+    
+    &:hover,
+    &.active {
+      background-color: $primary-dark;
+      border-color: $primary-dark;
+      color: $white;
+    }
+  }
+}
+
+.portfolio-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  
+  @include media-breakpoint-down(md) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.portfolio-item {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  cursor: pointer;
+  @include transition(transform, 0.3s);
+  
+  @include media-breakpoint-down(md) {
+    height: 350px;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    height: 300px;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    
+    .portfolio-overlay {
+      opacity: 1;
+    }
+    
+    .portfolio-image img {
+      transform: scale(1.05);
+    }
+  }
+  
+  // Masonry layout variations
+  &:nth-child(3n+1) {
+    grid-row: span 2;
+    height: 500px;
+    
+    @include media-breakpoint-down(md) {
+      grid-row: span 1;
+      height: 350px;
+    }
+  }
+  
+  &:nth-child(5n+2) {
+    grid-column: span 2;
+    
+    @include media-breakpoint-down(lg) {
+      grid-column: span 1;
+    }
+  }
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @include transition(transform, 0.5s);
+  }
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba($primary-dark, 0.85) 0%, rgba($primary-dark, 0.6) 100%);
+  opacity: 0;
+  @include transition(opacity);
+  @include flex-center;
+  align-items: flex-end;
+  padding: 2rem;
+}
+
+.portfolio-content {
+  text-align: left;
+  color: $white;
+  width: 100%;
+  
+  .portfolio-title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    margin-bottom: 0.5rem;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-xl;
+    }
+  }
+  
+  .portfolio-category {
+    font-size: $font-size-base;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-sm;
+    }
+  }
+  
+  .portfolio-description {
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    opacity: 0.9;
+  }
+}
+
+// Filter animation
+.portfolio-item {
+  @include transition(all, 0.3s, ease-in-out);
+  
+  &.filter-hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+  }
+  
+  &.filter-show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+}
+
+// Loading state
+.portfolio-loading {
+  text-align: center;
+  padding: 4rem 0;
+  
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid $light-gray;
+    border-top: 3px solid $primary-dark;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+  
+  .loading-text {
+    color: $primary-light;
+    font-size: $font-size-lg;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Empty state
+.portfolio-empty {
+  text-align: center;
+  padding: 4rem 0;
+  color: $primary-light;
+  
+  .empty-icon {
+    font-size: $font-size-6xl;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+  
+  .empty-title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    margin-bottom: 0.5rem;
+    color: $primary-dark;
+  }
+  
+  .empty-description {
+    font-size: $font-size-base;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+// Page indicator for portfolio
+.portfolio-page {
+  .page-indicator {
+    &::before {
+      content: 'Portfolio';
+    }
+  }
+}

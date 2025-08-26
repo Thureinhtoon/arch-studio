@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore our portfolio of award-winning architecture projects including residential, commercial, and cultural buildings.">
+  <meta name="keywords" content="architecture portfolio, building design, construction projects, residential, commercial">
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link rel="stylesheet" href="./dist/css/main.css">
+  
+  <title>Portfolio | Arch Studio Architecture & Design</title>
+</head>
+<body class="portfolio-page">
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="navbar d-flex justify-content-between align-items-center">
+        <a href="index.html" class="navbar-brand">
+          <img src="./assets/logo.svg" alt="Arch Studio" width="97" height="40">
+        </a>
+        
+        <ul class="navbar-nav d-flex" id="navbarNav">
+          <li class="nav-item">
+            <a href="portfolio.html" class="nav-link active">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        
+        <button class="navbar-toggler" type="button" id="navbarToggle" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </nav>
+    </div>
+    <div class="navbar-overlay" id="navbarOverlay"></div>
+  </header>
+
+  <main>
+    <!-- Portfolio Hero Section -->
+    <section class="portfolio-hero" style="background-image: url('./assets/portfolio/desktop/image-seraph.jpg')">
+      <div class="hero-content">
+        <div class="container">
+          <div class="page-indicator">Portfolio</div>
+          <h1 class="hero-title">Our Projects</h1>
+          <p class="hero-subtitle">Showcasing our finest architectural achievements across residential, commercial, and cultural spaces.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section class="portfolio-grid">
+      <div class="container">
+        <!-- Filter Buttons -->
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="residential">Residential</button>
+          <button class="filter-btn" data-filter="commercial">Commercial</button>
+          <button class="filter-btn" data-filter="cultural">Cultural</button>
+        </div>
+        
+        <!-- Portfolio Items -->
+        <div class="portfolio-items" id="portfolioItems">
+          <!-- Seraph Station -->
+          <article class="portfolio-item filter-show" data-category="cultural" data-date="2019-09">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-seraph.jpg" alt="Seraph Station" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">Seraph Station</h3>
+                <p class="portfolio-category">Cultural</p>
+                <p class="portfolio-description">September 2019 • A futuristic transportation hub inspired by space stations.</p>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Eebox Building -->
+          <article class="portfolio-item filter-show" data-category="commercial" data-date="2017-08">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-eebox.jpg" alt="Eebox Building" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">Eebox Building</h3>
+                <p class="portfolio-category">Commercial</p>
+                <p class="portfolio-description">August 2017 • Modern office complex with sustainable design features.</p>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Federal II Tower -->
+          <article class="portfolio-item filter-show" data-category="commercial" data-date="2017-03">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-federal.jpg" alt="Federal II Tower" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">Federal II Tower</h3>
+                <p class="portfolio-category">Commercial</p>
+                <p class="portfolio-description">March 2017 • Brutal minimalism meets modern architectural innovation.</p>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Project Del Sol -->
+          <article class="portfolio-item filter-show" data-category="residential" data-date="2016-01">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-del-sol.jpg" alt="Project Del Sol" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">Project Del Sol</h3>
+                <p class="portfolio-category">Residential</p>
+                <p class="portfolio-description">January 2016 • Luxury residential development with solar integration.</p>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Le Prototype -->
+          <article class="portfolio-item filter-show" data-category="residential" data-date="2015-10">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-prototype.jpg" alt="Le Prototype" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">Le Prototype</h3>
+                <p class="portfolio-category">Residential</p>
+                <p class="portfolio-description">October 2015 • Experimental housing design pushing architectural boundaries.</p>
+              </div>
+            </div>
+          </article>
+          
+          <!-- 228B Tower -->
+          <article class="portfolio-item filter-show" data-category="commercial" data-date="2015-04">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-228b.jpg" alt="228B Tower" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">228B Tower</h3>
+                <p class="portfolio-category">Commercial</p>
+                <p class="portfolio-description">April 2015 • Mixed-use development with innovative structural design.</p>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Grand Edelweiss Hotel -->
+          <article class="portfolio-item filter-show" data-category="cultural" data-date="2013-12">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-edelweiss.jpg" alt="Grand Edelweiss Hotel" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">Grand Edelweiss Hotel</h3>
+                <p class="portfolio-category">Cultural</p>
+                <p class="portfolio-description">December 2013 • Luxury mountain resort blending tradition with modernity.</p>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Netcry Tower -->
+          <article class="portfolio-item filter-show" data-category="commercial" data-date="2012-08">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-netcry.jpg" alt="Netcry Tower" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">Netcry Tower</h3>
+                <p class="portfolio-category">Commercial</p>
+                <p class="portfolio-description">August 2012 • Tech company headquarters with cutting-edge design.</p>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Hypers -->
+          <article class="portfolio-item filter-show" data-category="commercial" data-date="2012-01">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-hypers.jpg" alt="Hypers" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">Hypers</h3>
+                <p class="portfolio-category">Commercial</p>
+                <p class="portfolio-description">January 2012 • Dynamic retail space with interactive architecture.</p>
+              </div>
+            </div>
+          </article>
+          
+          <!-- SXIV Tower -->
+          <article class="portfolio-item filter-show" data-category="commercial" data-date="2011-03">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-sxiv.jpg" alt="SXIV Tower" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">SXIV Tower</h3>
+                <p class="portfolio-category">Commercial</p>
+                <p class="portfolio-description">March 2011 • Sleek office building with panoramic city views.</p>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Trinity Bank Tower -->
+          <article class="portfolio-item filter-show" data-category="commercial" data-date="2010-09">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-trinity.jpg" alt="Trinity Bank Tower" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">Trinity Bank Tower</h3>
+                <p class="portfolio-category">Commercial</p>
+                <p class="portfolio-description">September 2010 • 84-story earthquake-resistant tower with curved design.</p>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Project Paramour -->
+          <article class="portfolio-item filter-show" data-category="cultural" data-date="2008-02">
+            <div class="portfolio-image">
+              <img src="./assets/portfolio/desktop/image-paramour.jpg" alt="Project Paramour" class="img-fluid">
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3 class="portfolio-title">Project Paramour</h3>
+                <p class="portfolio-category">Cultural</p>
+                <p class="portfolio-description">February 2008 • Bold modern architecture for an art museum.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <a href="index.html" class="footer-brand">
+            <img src="./assets/logo.svg" alt="Arch Studio" width="97" height="40">
+          </a>
+        </div>
+        
+        <nav class="footer-nav">
+          <a href="portfolio.html" class="footer-nav-link">Portfolio</a>
+          <a href="about.html" class="footer-nav-link">About Us</a>
+          <a href="contact.html" class="footer-nav-link">Contact</a>
+        </nav>
+        
+        <div class="footer-cta">
+          <p class="footer-cta-text">See Our Portfolio</p>
+          <a href="portfolio.html" class="btn btn-arrow">View Projects</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./src/js/main.js"></script>
+  <script src="./src/js/components/portfolio.js"></script>
+
+</body>
+</html>
