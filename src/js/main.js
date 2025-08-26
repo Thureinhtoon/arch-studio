@@ -49,15 +49,30 @@
       body.removeClass('menu-open');
     }
 
-    // Close menu on window resize and reset menu state
+    // Handle window resize with debouncing
+    let resizeTimeout;
     $(window).on('resize', function() {
-      if (window.innerWidth >= 992) { // lg breakpoint
-        closeMenu();
-        // Force reset menu state for large screens
-        navbarNav.removeAttr('style');
-        navbarToggle.removeClass('active');
-        body.removeClass('menu-open');
-      }
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function() {
+        if (window.innerWidth >= 992) {
+          // Desktop: Force close mobile menu and reset all states
+          navbarNav.removeClass('show');
+          navbarOverlay.removeClass('show');
+          navbarToggle.removeClass('active').attr('aria-expanded', 'false');
+          body.removeClass('menu-open');
+          
+          // Remove inline styles that might interfere
+          navbarNav.removeAttr('style');
+          navbarOverlay.removeAttr('style');
+        } else {
+          // Mobile: Ensure menu is hidden by default
+          if (!navbarToggle.hasClass('active')) {
+            navbarNav.removeClass('show');
+            navbarOverlay.removeClass('show');
+            body.removeClass('menu-open');
+          }
+        }
+      }, 100);
     });
 
     // Active page navigation highlighting

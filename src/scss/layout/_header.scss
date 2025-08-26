@@ -37,12 +37,12 @@
 }
 
 .navbar-nav {
-  @include flex-center;
   list-style: none;
   margin: 0;
   padding: 0;
   
-  @include media-breakpoint-up(lg) {
+  // Desktop styles (992px and up)
+  @media (min-width: 992px) {
     display: flex !important;
     position: static !important;
     width: auto !important;
@@ -52,10 +52,14 @@
     justify-content: center !important;
     align-items: center !important;
     padding: 0 !important;
+    right: auto !important;
     transform: none !important;
+    transition: none !important;
   }
   
-  @include media-breakpoint-down(lg) {
+  // Mobile styles (below 992px)
+  @media (max-width: 991.98px) {
+    display: flex;
     position: fixed;
     top: 0;
     right: -100%;
@@ -66,28 +70,33 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 3rem 2rem;
-    @include transition(right, 0.3s, ease-in-out);
+    transition: right 0.3s ease-in-out;
     z-index: $z-index-modal;
     
     &.show {
-      right: 0;
+      right: 0 !important;
     }
   }
   
-  @include media-breakpoint-down(sm) {
+  @media (max-width: 575.98px) {
     width: 250px;
     padding: 2rem 1.5rem;
   }
 }
 
 .nav-item {
-  @include media-breakpoint-up(lg) {
+  // Desktop styles
+  @media (min-width: 992px) {
     &:not(:last-child) {
       margin-right: 3rem;
+      margin-bottom: 0;
+      border-bottom: none;
+      padding-bottom: 0;
     }
   }
   
-  @include media-breakpoint-down(lg) {
+  // Mobile styles
+  @media (max-width: 991.98px) {
     width: 100%;
     margin-right: 0;
     
@@ -153,7 +162,6 @@
 
 // Mobile menu toggle
 .navbar-toggler {
-  display: none;
   background: none;
   border: none;
   padding: 0;
@@ -163,12 +171,14 @@
   z-index: $z-index-modal + 10;
   cursor: pointer;
   
-  @include media-breakpoint-up(lg) {
+  // Hide on desktop
+  @media (min-width: 992px) {
     display: none !important;
   }
   
-  @include media-breakpoint-down(lg) {
-    display: block;
+  // Show on mobile
+  @media (max-width: 991.98px) {
+    display: block !important;
   }
   
   .hamburger {
@@ -210,9 +220,15 @@
 
 // Mobile overlay
 .navbar-overlay {
-  display: none;
+  // Hide completely on desktop
+  @media (min-width: 992px) {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
   
-  @include media-breakpoint-down(lg) {
+  // Mobile overlay styles
+  @media (max-width: 991.98px) {
     position: fixed;
     top: 0;
     left: 0;
@@ -222,7 +238,7 @@
     z-index: $z-index-modal - 10;
     opacity: 0;
     visibility: hidden;
-    @include transition(all, 0.3s, ease-in-out);
+    transition: all 0.3s ease-in-out;
     
     &.show {
       display: block;
@@ -257,6 +273,18 @@
   
   .navbar-toggler .hamburger span {
     background-color: $white;
+  }
+}
+
+// Body state when mobile menu is open
+body.menu-open {
+  @media (max-width: 991.98px) {
+    overflow: hidden;
+  }
+  
+  // Ensure desktop is never affected
+  @media (min-width: 992px) {
+    overflow: auto !important;
   }
 }
 
