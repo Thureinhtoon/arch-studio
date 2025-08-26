@@ -74,7 +74,7 @@
 // Mobile navigation (below 992px)  
 @media screen and (max-width: 991px) {
   .navbar-nav {
-    display: flex;
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
@@ -86,12 +86,10 @@
     align-items: flex-start;
     padding: 3rem 2rem;
     z-index: 1000;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
   }
   
   .navbar-nav.show {
-    transform: translateX(0);
+    display: flex;
   }
   
   .navbar-toggler {
@@ -294,6 +292,7 @@
   .navbar-toggler .hamburger span {
     background-color: $white;
   }
+  
 }
 
 // Body overflow control when mobile menu is open

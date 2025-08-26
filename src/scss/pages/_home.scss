@@ -369,6 +369,24 @@ body.homepage {
       background-color: $white;
     }
     
+    // Mobile navigation styles for homepage only
+    @media screen and (max-width: 991px) {
+      .navbar-nav {
+        background-color: rgba(27, 29, 35, 0.95);
+        backdrop-filter: blur(10px);
+      }
+      
+      .nav-link {
+        color: $white;
+        
+        &:hover,
+        &.active {
+          color: $white;
+          opacity: 0.8;
+        }
+      }
+    }
+    
     &.scrolled {
       background-color: rgba($white, 0.95);
       backdrop-filter: blur(10px);

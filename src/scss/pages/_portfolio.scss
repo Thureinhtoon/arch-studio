@@ -109,17 +109,19 @@
 }
 
 .portfolio-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  display: flex !important;
+  flex-wrap: wrap !important;
   gap: 2rem;
   
+  @include media-breakpoint-down(lg) {
+    gap: 1.5rem;
+  }
+  
   @include media-breakpoint-down(md) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
   }
   
   @include media-breakpoint-down(sm) {
-    grid-template-columns: 1fr;
     gap: 1rem;
   }
 }
@@ -129,14 +131,22 @@
   height: 400px;
   overflow: hidden;
   cursor: pointer;
-  @include transition(transform, 0.3s);
+  @include transition(all, 0.3s, ease-in-out);
+  flex: 0 0 calc(33.333% - 1.5rem) !important;
+  
+  @include media-breakpoint-down(lg) {
+    height: 380px;
+    flex: 0 0 calc(50% - 1rem) !important;
+  }
   
   @include media-breakpoint-down(md) {
     height: 350px;
+    flex: 0 0 calc(50% - 1rem) !important;
   }
   
   @include media-breakpoint-down(sm) {
     height: 300px;
+    flex: 0 0 100% !important;
   }
   
   &:hover {
@@ -148,25 +158,6 @@
     
     .portfolio-image img {
       transform: scale(1.05);
-    }
-  }
-  
-  // Masonry layout variations
-  &:nth-child(3n+1) {
-    grid-row: span 2;
-    height: 500px;
-    
-    @include media-breakpoint-down(md) {
-      grid-row: span 1;
-      height: 350px;
-    }
-  }
-  
-  &:nth-child(5n+2) {
-    grid-column: span 2;
-    
-    @include media-breakpoint-down(lg) {
-      grid-column: span 1;
     }
   }
 }
@@ -231,21 +222,13 @@
   }
 }
 
-// Filter animation
-.portfolio-item {
-  @include transition(all, 0.3s, ease-in-out);
-  
-  &.filter-hidden {
-    opacity: 0;
-    transform: scale(0.8);
-    pointer-events: none;
-  }
-  
-  &.filter-show {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: auto;
-  }
+// Portfolio filter states - MAXIMUM SPECIFICITY TO OVERRIDE EVERYTHING
+#portfolioItems .portfolio-item.filter-hidden {
+  display: none !important;
+}
+
+#portfolioItems .portfolio-item.filter-show {
+  display: block !important;
 }
 
 // Loading state
